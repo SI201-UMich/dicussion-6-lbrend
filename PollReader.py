@@ -111,11 +111,11 @@ class PollReader():
 
         for i in range(len(self.data_dict['sample type'])):
             if self.data_dict['sample type'][i] == 'LV':
-                harris_sum = harris_sum + self.data_dict['Harris result'][i]
-                trump_sum = trump_sum + self.data_dict['Trump result'][i]
+                harris_sum += self.data_dict['Harris result'][i]
+                trump_sum += self.data_dict['Trump result'][i]
                 count += 1
 
-        if count == 0:
+        if count > 0:
             return (harris_sum / count, trump_sum / count)
         else:
             return (0.0, 0.0)
@@ -123,7 +123,7 @@ class PollReader():
 
 
 
-        pass
+        
 
 
     def polling_history_change(self):
